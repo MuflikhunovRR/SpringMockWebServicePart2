@@ -46,7 +46,7 @@ public class CardNumResource {
     @Produces(MediaType.APPLICATION_JSON)
     public Response updateRequest(@PathParam("rqUid") String rqUid, PhonesByCardNumberRq msg) {
         if (msg.getRqUid() != rqUid) {
-            throw new IllegalArgumentException("Object id cannot be different than the parameter id");
+            throw new IllegalArgumentException("Некорретный rqUid");
         }
         if (requestManager.updateRequest(msg)) {
             return Response.status(Status.OK).build();
